@@ -1,24 +1,24 @@
 #
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
+# This is the user-interface definition of the app.
 #
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
+
 
 ui <- shinyUI(fluidPage(
   
   titlePanel(title = h4("Distributions", align = "centre")), 
   sidebarLayout(
     sidebarPanel(
+      # Input panel for dataset chosen
       selectInput("Dataset", "1. Select the Dataset you want to display", 
                   choices = list("mtcars", "iris", "faithful")), 
       br(),
       
+      # Radio buttons for plot type (histogram, xy-plot)
       radioButtons("Plot_Type", "2. Select the Plot type", 
                    choices = list("xy-plot", "histogram")),
       br(),
+      
+      # Slider for selecting number of bins in histogram if that is plot chosen by user
       sliderInput("bins", "3.Select the number of bins for the histogram", 
                   min = 5, max = 25, value = 15),
       br()
